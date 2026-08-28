@@ -1,0 +1,34 @@
+# Build output
+/cmake-build-*/
+/build/
+/build-*/
+/out/
+/cmake-install/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+
+# Compiled binaries / intermediates
+*.exe
+*.dll
+*.obj
+*.o
+*.a
+*.ilk
+*.pdb
+*.exp
+*.lib
+
+# Keep the vendored raylib prebuilt library
+!external/raylib/lib/*.lib
+!external/raylib/lib/*.dll
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
