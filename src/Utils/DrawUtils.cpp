@@ -4,7 +4,7 @@
 
 #include "DrawUtils.h"
 
-void DrawUtils::DrawCell(GridCell cell)
+void DrawUtils::DrawCell(const GridCell& cell)
 {
     if (cell.IsCellClicked())
     {
@@ -12,6 +12,6 @@ void DrawUtils::DrawCell(GridCell cell)
     }
     else
     {
-        DrawRectangleLines(cell.GetCellRect().x, cell.GetCellRect().y, cell.GetCellRect().width,cell.GetCellRect().height, cell.GetBaseCellColor());
+        DrawRectangleLines(cell.GetCellRect().x, cell.GetCellRect().y, cell.GetCellRect().width, cell.GetCellRect().height, cell.GetBaseCellColor());
     }
 }
