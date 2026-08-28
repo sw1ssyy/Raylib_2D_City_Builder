@@ -1,2 +1,4 @@
 development:
+  - comment: "#6: Added logic for hovering / clicking grid cells."
+  - comment: "#1 #2: Added Initial Grid Logic for the City Builder."
   - comment: "initial commit."

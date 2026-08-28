@@ -3,7 +3,14 @@ project(2D_City_Builder)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(2D_City_Builder main.cpp)
+add_executable(2D_City_Builder src/main.cpp
+        src/GameConfig.h
+        src/Grid/GridCell.cpp
+        src/Grid/GridCell.h
+        src/Grid/Grid.cpp
+        src/Grid/Grid.h
+        src/Utils/DrawUtils.cpp
+        src/Utils/DrawUtils.h)
 
 # raylib (prebuilt, vendored in external/raylib)
 set(RAYLIB_DIR ${CMAKE_SOURCE_DIR}/external/raylib)
