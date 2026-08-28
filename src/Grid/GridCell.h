@@ -23,9 +23,6 @@ class GridCell
     private:
     Rectangle rect = {};
     bool isClicked = false;
-    Color hoverCellColour = {95, 146, 207,100};
-    Color baseCellColour = {46, 117, 201,100};
-    Color clickedCellColour = {26, 59, 110,100};
 };
 
 

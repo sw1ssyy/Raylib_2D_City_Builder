@@ -9,9 +9,9 @@
 
 int main()
 {
-    InitWindow(GameConfig::ScreenWidth, GameConfig::ScreenHeight, GameConfig::GameName);
+    InitWindow(GameConfig::SCREEN_WIDTH, GameConfig::SCREEN_HEIGHT, GameConfig::GAME_NAME);
 
-    SetTargetFPS(GameConfig::TargetFPS);
+    SetTargetFPS(GameConfig::TARGET_FPS);
 
     Grid grid = {};
 
@@ -20,7 +20,7 @@ int main()
     {
         BeginDrawing();
         ClearBackground(DARKGRAY);
-        DrawText(GameConfig::GameName, GameConfig::ScreenWidth / 2 - 220,10 ,60, RED);
+        DrawText(GameConfig::GAME_NAME, GameConfig::SCREEN_WIDTH / 2 - 220,10 ,60, RED);
         grid.DrawGrid();
         EndDrawing();
     }
