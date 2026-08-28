@@ -20,7 +20,7 @@ int main()
     {
         BeginDrawing();
         ClearBackground(DARKGRAY);
-        DrawText("2D City Builder", GameConfig::ScreenWidth / 2 - 220,10 ,60, RED);
+        DrawText(GameConfig::GameName, GameConfig::ScreenWidth / 2 - 220,10 ,60, RED);
         grid.DrawGrid();
         EndDrawing();
     }

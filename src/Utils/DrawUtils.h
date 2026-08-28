@@ -10,7 +10,7 @@
 class DrawUtils
 {
 public:
-    static void DrawCell(GridCell cell);
+    static void DrawCell(const GridCell& cell);
 };
 
 

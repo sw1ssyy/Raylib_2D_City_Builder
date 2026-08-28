@@ -14,11 +14,6 @@ void GridCell::SetCellRect(Rectangle rect)
     this->rect = rect;
 }
 
-float GridCell::GetSize() const
-{
-    return size;
-}
-
 bool GridCell::IsCellClicked() const
 {
     return isClicked;

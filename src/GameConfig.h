@@ -15,9 +15,10 @@ struct GameConfig
     static constexpr int TargetFPS    = 60;
 
     // Grid
-    static constexpr int   GridColumns = 15;
-    static constexpr int   GridRows    = 15;
-    static constexpr float CellSize    = 45.0f;
+    static constexpr int   GridColumns   = 15;
+    static constexpr int   GridRows      = 15;
+    static constexpr float CellSize      = 45.0f;
+    static constexpr float GridTopPadding = 25.0f; // nudges the grid up to visually balance with the title
 };
 
 

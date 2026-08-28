@@ -12,8 +12,6 @@
 class GridCell
 {
     public:
-
-    float GetSize() const;
     Rectangle GetCellRect() const;
     void SetCellRect(Rectangle rectangle);
     bool IsCellClicked() const;
@@ -23,9 +21,8 @@ class GridCell
     Color GetClickedCellColor() const;
 
     private:
-    float size = GameConfig::CellSize;
-    Rectangle rect;
-    bool isClicked;
+    Rectangle rect = {};
+    bool isClicked = false;
     Color hoverCellColour = {95, 146, 207,100};
     Color baseCellColour = {46, 117, 201,100};
     Color clickedCellColour = {26, 59, 110,100};
