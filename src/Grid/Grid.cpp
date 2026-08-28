@@ -41,6 +41,7 @@ void Grid::DrawGrid()
 
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
+            TraceLog(LOG_INFO, "Cell Clicked: (%d, %d)", col, row);
             cell.SetCellClicked(!cell.IsCellClicked());
         }
 
