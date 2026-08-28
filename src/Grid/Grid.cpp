@@ -10,12 +10,12 @@
 
 Grid::Grid()
 {
-    SetXOffset((GameConfig::ScreenWidth - GameConfig::GridColumns * GameConfig::CellSize) / 2.0f);
-    SetYOffset((GameConfig::ScreenHeight - GameConfig::GridRows * GameConfig::CellSize) / 2.0f - GameConfig::GridTopPadding);
+    SetXOffset((GameConfig::SCREEN_WIDTH - GameConfig::GRID_COLUMNS * GameConfig::CELL_SIZE) / 2.0f);
+    SetYOffset((GameConfig::SCREEN_HEIGHT - GameConfig::GRID_ROWS * GameConfig::CELL_SIZE) / 2.0f - GameConfig::GRID_TOP_PADDING);
 
-    for (int row = 0; row < GameConfig::GridRows; row++)
+    for (int row = 0; row < GameConfig::GRID_ROWS; row++)
     {
-        for (int col = 0; col < GameConfig::GridColumns; col++)
+        for (int col = 0; col < GameConfig::GRID_COLUMNS; col++)
         {
             GridCell cell = {};
 
@@ -51,31 +51,31 @@ void Grid::DrawGrid()
 
 bool Grid::InBounds(int col, int row) const
 {
-    return col >= 0 && col < GameConfig::GridColumns && row >= 0 && row < GameConfig::GridRows;
+    return col >= 0 && col < GameConfig::GRID_COLUMNS && row >= 0 && row < GameConfig::GRID_ROWS;
 }
 
 Vector2 Grid::TileToScreen(int col, int row) const
 {
-    return {xOffset + (col * GameConfig::CellSize), yOffset + (row * GameConfig::CellSize)};
+    return {xOffset + (col * GameConfig::CELL_SIZE), yOffset + (row * GameConfig::CELL_SIZE)};
 }
 
 Rectangle Grid::CellRect(int col, int row) const
 {
     Vector2 pos = TileToScreen(col, row);
 
-    return {pos.x, pos.y, GameConfig::CellSize, GameConfig::CellSize};
+    return {pos.x, pos.y, GameConfig::CELL_SIZE, GameConfig::CELL_SIZE};
 }
 
 bool Grid::ScreenToTile(Vector2 screenPos, int &col, int &row) const
 {
-    col = static_cast<int>(std::floor((screenPos.x - xOffset) / GameConfig::CellSize));
-    row = static_cast<int>(std::floor((screenPos.y - yOffset) / GameConfig::CellSize));
+    col = static_cast<int>(std::floor((screenPos.x - xOffset) / GameConfig::CELL_SIZE));
+    row = static_cast<int>(std::floor((screenPos.y - yOffset) / GameConfig::CELL_SIZE));
     return InBounds(col, row);
 }
 
 GridCell &Grid::CellAt(int col, int row)
 {
-    return cells[row * GameConfig::GridColumns + col];
+    return cells[row * GameConfig::GRID_COLUMNS + col];
 }
 
 std::vector<GridCell> &Grid::GetCells()

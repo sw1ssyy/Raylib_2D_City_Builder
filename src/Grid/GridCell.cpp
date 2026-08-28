@@ -26,15 +26,15 @@ void GridCell::SetCellClicked(bool clicked)
 
 Color GridCell::GetBaseCellColor() const
 {
-    return baseCellColour;
+    return GameConfig::BASE_COLOUR;
 }
 
 Color GridCell::GetHoverCellColor() const
 {
-    return hoverCellColour;
+    return GameConfig::HOVER_COLOUR;
 }
 
 Color GridCell::GetClickedCellColor() const
 {
-    return clickedCellColour;
+    return GameConfig::CLICKED_COLOUR;
 }
