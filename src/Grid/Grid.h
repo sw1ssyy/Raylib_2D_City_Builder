@@ -11,7 +11,7 @@
 
 #include "GridCell.h"
 
-#include "../GameConfig.h"
+#include "../Configs/GameConfig.h"
 
 
 class Grid

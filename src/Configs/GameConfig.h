@@ -24,6 +24,13 @@ struct GameConfig
     static constexpr int   GRID_ROWS      = 15;
     static constexpr float CELL_SIZE      = 45.0f;
     static constexpr float GRID_TOP_PADDING = 25.0f; // nudges the grid up to visually balance with the title
+
+    // Cards
+    static constexpr float CARD_WIDTH = 100.0f;
+    static constexpr float CARD_HEIGHT = 140.0f;
+    static constexpr float CARD_SPACING = 120.0f;
+    static constexpr float CARD_X_OFFSET = SCREEN_WIDTH * 0.2;
+    static constexpr float CARD_BOTTOM_PADDING = 150.0f;
 };
 
 

@@ -1,4 +1,5 @@
 development:
+  - comment: "#11 #12: Added initial Card assets, and basic card rendering."
   - comment: "#4 #5: Added Mouse Click Detection + Hover Effect."
   - comment: "#3: Optimized GridCell drawing logic."
   - comment: "#6: Added logic for hovering / clicking grid cells."
