@@ -6,7 +6,7 @@
 #define INC_2D_CITY_BUILDER_GRIDCELL_H
 #include "raylib.h"
 
-#include "../GameConfig.h"
+#include "../Configs/GameConfig.h"
 
 
 class GridCell
