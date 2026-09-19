@@ -15,3 +15,8 @@ void DrawUtils::DrawCell(const GridCell& cell)
         DrawRectangleLines(cell.GetCellRect().x, cell.GetCellRect().y, cell.GetCellRect().width, cell.GetCellRect().height, cell.GetBaseCellColor());
     }
 }
+
+void DrawUtils::DrawCard(Texture2D &texture, Rectangle rect, Color color)
+{
+    DrawTextureEx(texture, {rect.x, rect.y},0,0.4, color);
+}

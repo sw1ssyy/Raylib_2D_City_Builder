@@ -16,14 +16,13 @@ int main()
 
     SetTargetFPS(GameConfig::TARGET_FPS);
 
-    Grid grid = {};
-    CardHolder cardHolder = {};
-
     TextureManager::GetInstance().Load(AssetConfig::FARM_CARD,AssetConfig::FARM_CARD);
     TextureManager::GetInstance().Load(AssetConfig::FACTORY_CARD,AssetConfig::FACTORY_CARD);
     TextureManager::GetInstance().Load(AssetConfig::HOUSE_CARD,AssetConfig::HOUSE_CARD);
     TextureManager::GetInstance().Load(AssetConfig::SHOP_CARD,AssetConfig::SHOP_CARD);
 
+    Grid grid = {};
+    CardHolder cardHolder = {};
 
     // Main game loop
     while (!WindowShouldClose()) // Detect window close button or ESC key

@@ -14,7 +14,6 @@ class CardHolder
     public:
     CardHolder();
     void DrawCards();
-    void DrawCard(Card &card, int x);
 
     private:
     std::vector<Card> cards;
