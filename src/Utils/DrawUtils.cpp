@@ -4,11 +4,14 @@
 
 #include "DrawUtils.h"
 
+#include "TextureManager.h"
+#include "../Configs/AssetConfig.h"
+
 void DrawUtils::DrawCell(const GridCell& cell)
 {
     if (cell.IsCellClicked())
     {
-        DrawRectangleRec(cell.GetCellRect(), cell.GetClickedCellColor());
+        DrawTexture(TextureManager::GetInstance().Get(AssetConfig::ICON_FARM),cell.GetCellRect().x, cell.GetCellRect().y, WHITE);
     }
     else
     {

@@ -6,7 +6,6 @@
 #include "cards/CardHolder.h"
 #include "Configs/AssetConfig.h"
 #include "Grid/Grid.h"
-#include "Utils/DrawUtils.h"
 #include "Utils/TextureManager.h"
 
 
@@ -16,16 +15,13 @@ int main()
 
     SetTargetFPS(GameConfig::TARGET_FPS);
 
-    TextureManager::GetInstance().Load(AssetConfig::FARM_CARD,AssetConfig::FARM_CARD);
-    TextureManager::GetInstance().Load(AssetConfig::FACTORY_CARD,AssetConfig::FACTORY_CARD);
-    TextureManager::GetInstance().Load(AssetConfig::HOUSE_CARD,AssetConfig::HOUSE_CARD);
-    TextureManager::GetInstance().Load(AssetConfig::SHOP_CARD,AssetConfig::SHOP_CARD);
+    TextureManager::GetInstance().LoadAll();
 
-    Grid grid = {};
     CardHolder cardHolder = {};
+    Grid grid = {};
 
-    // Main game loop
-    while (!WindowShouldClose()) // Detect window close button or ESC key
+
+    while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(DARKGRAY);
@@ -34,6 +30,7 @@ int main()
         grid.DrawGrid();
         EndDrawing();
     }
+    TextureManager::GetInstance().UnloadAll();
     CloseWindow();
 
     return 0;
