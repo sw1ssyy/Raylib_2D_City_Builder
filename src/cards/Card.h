@@ -6,6 +6,8 @@
 #define INC_2D_CITY_BUILDER_CARD
 #include "raylib.h"
 
+class CardHolder;
+
 enum EBuildingType
 {
     FARM,
@@ -18,19 +20,25 @@ class Card
 {
     public:
 
-    Card(EBuildingType buildingType, int index);
+    Card(EBuildingType buildingType, int index, CardHolder* holder);
 
-    EBuildingType GetBuildingType();
-
-    void HandleDragMovement();
+    EBuildingType GetBuildingType() const;
 
     void Draw();
+
+    bool IsBeingHeld() const;
+
+    void SetIsBeingHeld(bool value);
+
+    Rectangle& GetCardRect();
 
     private:
     Texture2D& GetCardTexture(EBuildingType buildingType);
     EBuildingType buildingType;
     Texture2D& texture;
     Rectangle rect;
+    CardHolder* holder;
+    bool heldStatus;
 };
 
 

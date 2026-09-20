@@ -20,6 +20,8 @@ int main()
     CardHolder cardHolder = {};
     Grid grid = {};
 
+    cardHolder.SetupCards();
+
 
     while (!WindowShouldClose())
     {

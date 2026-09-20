@@ -4,19 +4,22 @@
 
 #include "Card.h"
 
+#include "CardHolder.h"
 #include "../Configs/AssetConfig.h"
 #include "../Configs/GameConfig.h"
 #include "../Utils/DrawUtils.h"
 #include "../Utils/TextureManager.h"
 
-Card::Card(EBuildingType buildingType, int index) :
+Card::Card(EBuildingType buildingType, int index, CardHolder* holder) :
 rect({GameConfig::CARD_X_OFFSET + index * GameConfig::CARD_SPACING, GameConfig::SCREEN_HEIGHT - GameConfig::CARD_BOTTOM_PADDING, GameConfig::CARD_WIDTH, GameConfig::CARD_HEIGHT}),
 texture(GetCardTexture(buildingType)),
+heldStatus(false),
+holder(holder),
 buildingType(buildingType)
 
 {}
 
-EBuildingType Card::GetBuildingType()
+EBuildingType Card::GetBuildingType() const
 {
     return this->buildingType;
 }
@@ -25,11 +28,11 @@ Texture2D & Card::GetCardTexture(EBuildingType buildingType)
 {
     switch (buildingType)
     {
-        case EBuildingType::FACTORY:
+        case FACTORY:
             return TextureManager::GetInstance().Get(AssetConfig::FACTORY_CARD);
-        case EBuildingType::FARM:
+        case FARM:
             return TextureManager::GetInstance().Get(AssetConfig::FARM_CARD);
-        case EBuildingType::HOUSE:
+        case HOUSE:
             return TextureManager::GetInstance().Get(AssetConfig::HOUSE_CARD);
         default:
             return TextureManager::GetInstance().Get(AssetConfig::SHOP_CARD);
@@ -42,7 +45,11 @@ void Card::Draw()
     {
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
         {
-            HandleDragMovement();
+            holder->HoldCard(*this);
+        }
+        else if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON) && IsBeingHeld())
+        {
+            holder->ReleaseCard(*this);
         }
 
         DrawUtils::DrawCard(texture,rect,WHITE);
@@ -54,8 +61,19 @@ void Card::Draw()
     }
 }
 
-void Card::HandleDragMovement()
+
+Rectangle& Card::GetCardRect()
 {
-    rect.x = GetMousePosition().x - GameConfig::CARD_WIDTH / 2;
-    rect.y = GetMousePosition().y - GameConfig::CARD_HEIGHT / 2;
+    return this->rect;
+}
+
+
+bool Card::IsBeingHeld() const
+{
+    return this->heldStatus;
+}
+
+void Card::SetIsBeingHeld(bool value)
+{
+    heldStatus = value;
 }

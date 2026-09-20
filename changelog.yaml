@@ -1,4 +1,5 @@
 development:
+  - comment: "#13 #14: Fixed an issue where dragged cards don't return to initial position after dragging."
   - comment: "#13 #14: Added inital Card Dragging logic."
   - comment: "#11 #12: Added initial Card assets, and basic card rendering."
   - comment: "#4 #5: Added Mouse Click Detection + Hover Effect."
