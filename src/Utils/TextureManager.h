@@ -13,7 +13,8 @@ public:
     }
 
     Texture2D& Get(const std::string& assetId);
-    void Load(const std::string& assetId, const std::string& filePath);
+    void Load(const std::string& assetId);
+    void LoadAll();
     void UnloadAll();
 
 private:

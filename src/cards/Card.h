@@ -17,11 +17,19 @@ enum EBuildingType
 class Card
 {
     public:
-    Card(EBuildingType buildingType);
+
+    Card(EBuildingType buildingType, int index);
+
     EBuildingType GetBuildingType();
-    void Draw(int x);
+
+    void HandleDragMovement();
+
+    void Draw();
+
     private:
+    Texture2D& GetCardTexture(EBuildingType buildingType);
     EBuildingType buildingType;
+    Texture2D& texture;
     Rectangle rect;
 };
 

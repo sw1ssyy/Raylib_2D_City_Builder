@@ -11,6 +11,7 @@ class DrawUtils
 {
 public:
     static void DrawCell(const GridCell& cell);
+    static void DrawCard(Texture2D& texture, Rectangle rect, Color color);
 };
 
 

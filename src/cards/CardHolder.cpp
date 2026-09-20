@@ -4,19 +4,13 @@
 
 #include "CardHolder.h"
 
-CardHolder::CardHolder(): cards({Card(EBuildingType::FARM), Card(EBuildingType::FACTORY), Card(EBuildingType::FACTORY)})
+CardHolder::CardHolder(): cards({ Card(EBuildingType::FACTORY, 0), Card(EBuildingType::SHOP, 1)})
 {};
 
 void CardHolder::DrawCards()
 {
     for (int i = 0; i < cards.size(); i++)
     {
-        Card& card = cards[i];
-        DrawCard(card, i);
+        cards[i].Draw();
     }
-}
-
-void CardHolder::DrawCard(Card& card, int x)
-{
-    card.Draw(x);
 }
