@@ -4,13 +4,62 @@
 
 #include "CardHolder.h"
 
-CardHolder::CardHolder(): cards({ Card(EBuildingType::FACTORY, 0), Card(EBuildingType::SHOP, 1)})
-{};
+#include "../Configs/GameConfig.h"
+
+CardHolder::CardHolder() : preHeldCardRect({}),isCardBeingHeld(false)
+{
+}
+
+void CardHolder::SetupCards()
+{
+    cards.emplace_back(FACTORY, 1, this);
+    cards.emplace_back(SHOP, 2, this);
+    cards.emplace_back(HOUSE, 3, this);
+}
+
+void CardHolder::HoldCard(Card &card)
+{
+    if (IsCardBeingHeld() && !card.IsBeingHeld())
+    {
+        return;
+    }
+
+    if (!card.IsBeingHeld())
+    {
+        SetCardBeingHeld(true);
+
+        preHeldCardRect = card.GetCardRect();
+    }
+
+    card.SetIsBeingHeld(true);
+
+    card.GetCardRect().x = GetMousePosition().x - GameConfig::CARD_WIDTH / 2;
+    card.GetCardRect().y = GetMousePosition().y - GameConfig::CARD_HEIGHT / 2;
+}
+
+void CardHolder::ReleaseCard(Card &card)
+{
+    SetCardBeingHeld(false);
+
+    card.SetIsBeingHeld(false);
+
+    card.GetCardRect() = preHeldCardRect;
+}
+
+bool CardHolder::IsCardBeingHeld() const
+{
+    return this->isCardBeingHeld;
+}
+
+void CardHolder::SetCardBeingHeld(bool value)
+{
+    this->isCardBeingHeld = value;
+}
 
 void CardHolder::DrawCards()
 {
-    for (int i = 0; i < cards.size(); i++)
+    for (auto &card : cards)
     {
-        cards[i].Draw();
+        card.Draw();
     }
 }
