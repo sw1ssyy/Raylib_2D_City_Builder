@@ -17,7 +17,6 @@ struct GameConfig
     // Colours
     static constexpr Color HOVER_COLOUR =  {95, 146, 207,100};
     static constexpr Color BASE_COLOUR =  {46, 117, 201,100};
-    static constexpr Color CLICKED_COLOUR = {26, 59, 110,100};
 
     // Grid
     static constexpr int   GRID_COLUMNS   = 9;

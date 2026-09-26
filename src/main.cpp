@@ -17,8 +17,8 @@ int main()
 
     TextureManager::GetInstance().LoadAll();
 
-    CardHolder cardHolder = {};
     Grid grid = {};
+    CardHolder cardHolder(grid);
 
     cardHolder.SetupCards();
 

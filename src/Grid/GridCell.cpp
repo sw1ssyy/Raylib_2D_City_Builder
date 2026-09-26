@@ -3,6 +3,7 @@
 //
 
 #include "GridCell.h"
+#include "../Configs/GameConfig.h"
 
 Rectangle GridCell::GetCellRect() const
 {
@@ -14,14 +15,20 @@ void GridCell::SetCellRect(Rectangle rect)
     this->rect = rect;
 }
 
-bool GridCell::IsCellClicked() const
+bool GridCell::HasBuilding() const
 {
-    return isClicked;
+    return hasBuilding;
 }
 
-void GridCell::SetCellClicked(bool clicked)
+void GridCell::SetBuilding(EBuildingType type)
 {
-    this->isClicked = clicked;
+    this->buildingType = type;
+    this->hasBuilding = true;
+}
+
+EBuildingType GridCell::GetBuildingType() const
+{
+    return buildingType;
 }
 
 Color GridCell::GetBaseCellColor() const
@@ -32,9 +39,4 @@ Color GridCell::GetBaseCellColor() const
 Color GridCell::GetHoverCellColor() const
 {
     return GameConfig::HOVER_COLOUR;
-}
-
-Color GridCell::GetClickedCellColor() const
-{
-    return GameConfig::CLICKED_COLOUR;
 }

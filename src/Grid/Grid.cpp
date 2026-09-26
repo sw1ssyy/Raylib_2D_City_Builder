@@ -19,7 +19,6 @@ Grid::Grid()
         {
             GridCell cell = {};
 
-            cell.SetCellClicked(false);
             cell.SetCellRect(CellRect(col, row));
 
             GetCells().emplace_back(cell);
@@ -39,13 +38,7 @@ void Grid::DrawGrid()
     {
         GridCell& cell = CellAt(col, row);
 
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-        {
-            TraceLog(LOG_INFO, "Cell Clicked: (%d, %d)", col, row);
-            cell.SetCellClicked(!cell.IsCellClicked());
-        }
-
-        DrawRectangleRec(cell.GetCellRect(),cell.IsCellClicked() ? cell.GetClickedCellColor() : cell.GetHoverCellColor());
+        DrawRectangleRec(cell.GetCellRect(), cell.GetHoverCellColor());
     }
 }
 

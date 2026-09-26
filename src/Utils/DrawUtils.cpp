@@ -7,11 +7,30 @@
 #include "TextureManager.h"
 #include "../Configs/AssetConfig.h"
 
+namespace
+{
+    Texture2D& GetBuildingIcon(EBuildingType buildingType)
+    {
+        switch (buildingType)
+        {
+            case FACTORY:
+                return TextureManager::GetInstance().Get(AssetConfig::ICON_FACTORY);
+            case HOUSE:
+                return TextureManager::GetInstance().Get(AssetConfig::ICON_HOUSE);
+            case SHOP:
+                return TextureManager::GetInstance().Get(AssetConfig::ICON_SHOP);
+            default:
+                return TextureManager::GetInstance().Get(AssetConfig::ICON_FARM);
+        }
+    }
+}
+
 void DrawUtils::DrawCell(const GridCell& cell)
 {
-    if (cell.IsCellClicked())
+    if (cell.HasBuilding())
     {
-        DrawTexture(TextureManager::GetInstance().Get(AssetConfig::ICON_FARM),cell.GetCellRect().x, cell.GetCellRect().y, WHITE);
+        Texture2D& icon = GetBuildingIcon(cell.GetBuildingType());
+        DrawTexture(icon, cell.GetCellRect().x, cell.GetCellRect().y, WHITE);
     }
     else
     {

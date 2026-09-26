@@ -7,12 +7,13 @@
 #include <vector>
 
 #include "Card.h"
+#include "../Grid/Grid.h"
 
 
 class CardHolder
 {
     public:
-    CardHolder();
+    explicit CardHolder(Grid& grid);
     void SetupCards();
     void DrawCards();
     void HoldCard(Card& card);
@@ -22,6 +23,7 @@ class CardHolder
 
     private:
     std::vector<Card> cards;
+    Grid& grid;
     bool isCardBeingHeld;
     Rectangle preHeldCardRect;
 

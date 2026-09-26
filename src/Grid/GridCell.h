@@ -6,7 +6,7 @@
 #define INC_2D_CITY_BUILDER_GRIDCELL_H
 #include "raylib.h"
 
-#include "../Configs/GameConfig.h"
+#include "../cards/Card.h"
 
 
 class GridCell
@@ -14,15 +14,16 @@ class GridCell
     public:
     Rectangle GetCellRect() const;
     void SetCellRect(Rectangle rectangle);
-    bool IsCellClicked() const;
-    void SetCellClicked(bool clicked);
+    bool HasBuilding() const;
+    void SetBuilding(EBuildingType type);
+    EBuildingType GetBuildingType() const;
     Color GetBaseCellColor() const;
     Color GetHoverCellColor() const;
-    Color GetClickedCellColor() const;
 
     private:
     Rectangle rect = {};
-    bool isClicked = false;
+    bool hasBuilding = false;
+    EBuildingType buildingType = {};
 };
 
 

@@ -6,7 +6,7 @@
 
 #include "../Configs/GameConfig.h"
 
-CardHolder::CardHolder() : preHeldCardRect({}),isCardBeingHeld(false)
+CardHolder::CardHolder(Grid& grid) : grid(grid), isCardBeingHeld(false), preHeldCardRect({})
 {
 }
 
@@ -42,6 +42,14 @@ void CardHolder::ReleaseCard(Card &card)
     SetCardBeingHeld(false);
 
     card.SetIsBeingHeld(false);
+
+    int column = 0;
+    int row = 0;
+
+    if (grid.ScreenToTile(GetMousePosition(), column, row))
+    {
+        grid.CellAt(column, row).SetBuilding(card.GetBuildingType());
+    }
 
     card.GetCardRect() = preHeldCardRect;
 }
